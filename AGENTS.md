@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Site pages compose shared pieces from src/components/site (Layout, Sections); per-page SEO via src/lib/seo.ts `seo()` in each route head() — keeps meta/canonical/JSON-LD consistent.
+- Page copy is client-provided SEO text rendered verbatim in route files; don't rewrite it.
