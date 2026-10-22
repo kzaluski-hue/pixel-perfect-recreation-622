@@ -10,33 +10,64 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PalmyMrozoodporneRouteImport } from './routes/palmy-mrozoodporne'
+import { Route as RoslinyEgzotyczneRouteImport } from './routes/rosliny-egzotyczne'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PalmyMrozoodporneRoute = PalmyMrozoodporneRouteImport.update({
+  id: '/palmy-mrozoodporne',
+  path: '/palmy-mrozoodporne',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoslinyEgzotyczneRoute = RoslinyEgzotyczneRouteImport.update({
+  id: '/rosliny-egzotyczne',
+  path: '/rosliny-egzotyczne',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/palmy-mrozoodporne': typeof PalmyMrozoodporneRoute
+  '/rosliny-egzotyczne': typeof RoslinyEgzotyczneRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/palmy-mrozoodporne': typeof PalmyMrozoodporneRoute
+  '/rosliny-egzotyczne': typeof RoslinyEgzotyczneRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/palmy-mrozoodporne': typeof PalmyMrozoodporneRoute
+  '/rosliny-egzotyczne': typeof RoslinyEgzotyczneRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/palmy-mrozoodporne' | '/rosliny-egzotyczne' | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/palmy-mrozoodporne' | '/rosliny-egzotyczne' | '/blog'
+  id:
+    '__root__' | '/' | '/palmy-mrozoodporne' | '/rosliny-egzotyczne' | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PalmyMrozoodporneRoute: typeof PalmyMrozoodporneRoute
+  RoslinyEgzotyczneRoute: typeof RoslinyEgzotyczneRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +79,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/palmy-mrozoodporne': {
+      id: '/palmy-mrozoodporne'
+      path: '/palmy-mrozoodporne'
+      fullPath: '/palmy-mrozoodporne'
+      preLoaderRoute: typeof PalmyMrozoodporneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rosliny-egzotyczne': {
+      id: '/rosliny-egzotyczne'
+      path: '/rosliny-egzotyczne'
+      fullPath: '/rosliny-egzotyczne'
+      preLoaderRoute: typeof RoslinyEgzotyczneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PalmyMrozoodporneRoute: PalmyMrozoodporneRoute,
+  RoslinyEgzotyczneRoute: RoslinyEgzotyczneRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

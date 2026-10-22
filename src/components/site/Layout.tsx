@@ -71,7 +71,7 @@ export function Footer() {
           <h3 className="eyebrow mb-3 font-sans">Poradniki</h3>
           <ul className="space-y-2 text-sm">
             <li><Link to="/blog" className="hover:text-gold">Blog Palm House</Link></li>
-            <li><Link to="/blog/palma-w-polskim-ogrodzie-jaka-wybrac-jak-ja-uprawiac-i-zabezpieczyc-przed-mrozem" className="hover:text-gold">Palma w polskim ogrodzie – poradnik</Link></li>
+            <li><Link to="/blog/$slug" params={{ slug: "palma-w-polskim-ogrodzie-jaka-wybrac-jak-ja-uprawiac-i-zabezpieczyc-przed-mrozem" }} className="hover:text-gold">Palma w polskim ogrodzie – poradnik</Link></li>
           </ul>
         </div>
         <div>
