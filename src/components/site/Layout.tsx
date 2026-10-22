@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
-import logo from "@/assets/palmhouse-logo.jpg.asset.json";
 
 const nav = [
   { to: "/", label: "Strona główna" },
@@ -16,7 +15,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-obsidian text-obsidian-foreground">
       <nav aria-label="Główna nawigacja" className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2">
         <Link to="/" className="flex items-center gap-3" aria-label="Palm House – strona główna">
-          <img src={logo.url} alt="Palm House logo" width={56} height={56} className="h-14 w-14 object-cover" />
+          <img src="/palmhouse-logo.jpg" alt="Palm House logo" width={56} height={56} className="h-14 w-14 object-cover" />
           <span className="font-serif text-xl tracking-[0.2em] text-gold">PALM HOUSE</span>
         </Link>
         <ul className="hidden items-center gap-7 text-sm md:flex">
@@ -56,7 +55,7 @@ export function Footer() {
     <footer className="bg-obsidian text-obsidian-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={logo.url} alt="Palm House" width={120} height={120} loading="lazy" className="h-28 w-28 object-cover" />
+          <img src="/palmhouse-logo.jpg" alt="Palm House" width={120} height={120} loading="lazy" className="h-28 w-28 object-cover" />
           <p className="mt-3 text-sm opacity-75">Palmy mrozoodporne i rośliny egzotyczne importowane bezpośrednio z Hiszpanii.</p>
         </div>
         <div>
