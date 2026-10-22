@@ -11,5 +11,19 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Every public page is visitor-independent. Parameterized routes must be
+    // listed with concrete URLs; never auto-discover future private pages.
+    pages: [
+      { path: "/" },
+      { path: "/palmy-mrozoodporne" },
+      { path: "/rosliny-egzotyczne" },
+      { path: "/blog" },
+      { path: "/blog/palma-w-polskim-ogrodzie-jaka-wybrac-jak-ja-uprawiac-i-zabezpieczyc-przed-mrozem" },
+    ],
+    prerender: {
+      enabled: true,
+      autoStaticPathsDiscovery: false,
+      crawlLinks: false,
+    },
   },
 });
