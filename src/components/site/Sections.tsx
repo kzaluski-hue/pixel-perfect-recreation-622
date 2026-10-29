@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Truck, Sun, HeartHandshake, MapPin, MessageSquare, Camera, Sprout, PackageCheck, LifeBuoy, Thermometer, CheckCircle2 } from "lucide-react";
-import { toast } from "sonner";
+import { Truck, Sun, HeartHandshake, MapPin, MessageSquare, Camera, Sprout, PackageCheck, LifeBuoy, Thermometer, CheckCircle2, Phone } from "lucide-react";
 import frost from "@/assets/palm-frost.jpg";
 import hero from "@/assets/hero-garden.jpg";
 import winter from "@/assets/palm-winter.jpg";
@@ -133,7 +132,6 @@ export function BlogPreview() {
 }
 
 export function Inquiry() {
-  const [sent, setSent] = useState(false);
   return (
     <section id="kontakt" className="bg-obsidian text-obsidian-foreground">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2">
