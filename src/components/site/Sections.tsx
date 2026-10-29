@@ -147,42 +147,28 @@ export function Inquiry() {
             ))}
           </ul>
         </div>
-        {sent ? (
-          <div className="rounded-lg border border-gold/40 p-8">
-            <p className="font-serif text-3xl text-gold">Dziękujemy!</p>
-            <p className="mt-3 opacity-80">Twoje zapytanie zostało przyjęte. Wkrótce odezwiemy się ze zdjęciami dostępnych roślin.</p>
-          </div>
-        ) : (
-          <form
-            className="space-y-4 rounded-lg border border-gold/25 p-6 md:p-8"
-            onSubmit={(e) => { e.preventDefault(); setSent(true); toast.success("Zapytanie wysłane"); }}
-          >
-            <fieldset>
-              <legend className="mb-2 text-sm font-semibold">Czego szukasz?</legend>
-              <div className="flex flex-wrap gap-2">
-                {["Palma do gruntu", "Palma na taras lub balkon", "Rośliny egzotyczne"].map((o, i) => (
-                  <label key={o} className="cursor-pointer">
-                    <input type="radio" name="typ" value={o} defaultChecked={i === 0} className="peer sr-only" />
-                    <span className="inline-block rounded-full border border-gold/40 px-4 py-2 text-sm peer-checked:bg-primary peer-checked:text-primary-foreground">{o}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="text-sm">Imię<input required name="name" className="mt-1 w-full rounded-md border border-gold/30 bg-transparent px-3 py-2" /></label>
-              <label className="text-sm">E-mail lub telefon<input required name="contact" className="mt-1 w-full rounded-md border border-gold/30 bg-transparent px-3 py-2" /></label>
+        <div className="space-y-6 rounded-lg border border-gold/25 p-6 md:p-8">
+          <div className="space-y-4">
+            <a href="tel:+48721415450" className="flex items-center gap-3 text-lg transition hover:opacity-90">
+              <Phone className="h-5 w-5 shrink-0 text-gold" />
+              <span>+48 721 415 450</span>
+            </a>
+            <div className="flex items-start gap-3 text-lg">
+              <MapPin className="mt-1 h-5 w-5 shrink-0 text-gold" />
+              <span>ul. Źródlana 1B, 98-160 Pruszków, Poland</span>
             </div>
-            <label className="block text-sm">Region
-              <select name="region" className="mt-1 w-full rounded-md border border-gold/30 bg-obsidian px-3 py-2">
-                <option>łódzkie</option><option>mazowieckie</option><option>inne</option>
-              </select>
-            </label>
-            <label className="block text-sm">Opisz miejsce w ogrodzie
-              <textarea required name="msg" rows={4} placeholder="np. słoneczny taras od południa, ok. 3 m wolnej przestrzeni…" className="mt-1 w-full rounded-md border border-gold/30 bg-transparent px-3 py-2" />
-            </label>
-            <button type="submit" className="w-full rounded-full bg-primary py-3 font-semibold text-primary-foreground hover:opacity-90">Poproś o zdjęcia i ceny</button>
-          </form>
-        )}
+          </div>
+          <div className="overflow-hidden rounded-lg border border-gold/30">
+            <iframe
+              title="Palm House – ul. Źródlana 1B, 98-160 Pruszków"
+              src="https://www.google.com/maps?q=%C5%B9r%C3%B3dlana+1B,+98-160+Pruszk%C3%B3w,+Poland&output=embed"
+              className="h-64 w-full md:h-80"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
