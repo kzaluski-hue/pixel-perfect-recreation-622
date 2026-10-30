@@ -22,3 +22,8 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+
+
+gemini: 
+https://gemini.google.com/app/fc7cdb140a04e06a
